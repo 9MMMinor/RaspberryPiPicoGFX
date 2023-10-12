@@ -150,3 +150,38 @@ Documentation describing physical module connections can be found in the repo's
             returns tuple, [offset, width, height, bytes_per_character] for overall font.
         getTextWidth(string)
             returns string width in pixels.
+
+
+class gfxFont():
+    A class to represent structures for newer Adafruit_GFX (1.1 and later).
+    
+    Example fonts are included in 'Fonts' directory.
+    To use a font in your Micropython script, import the corresponding .py
+    file and pass Font tuple to the class __init__, e.g.
+        from FreeMono9pt7b import FreeMono9pt7b
+        fx = gfxFont(display_object, FreeMono9pt7b)
+    
+    bitmap = array.array('B', [...])
+
+    Font data stored PER GLYPH
+    glyph = (
+            bitmapOffset,   # Offset into GFXfont bitmap
+            width,          # Bitmap dimensions in pixels
+            height,         # Bitmap dimensions in pixels
+            xAdvance,       # Distance to advance cursor (x axis)
+            xOffset,        # X dist from cursor pos to UL corner
+            yOffset)        # Y dist from cursor pos to UL corner
+
+    Data tuple for FONT AS A WHOLE
+    Font = (
+            bitmap          # Bitmaps array of bytes
+            glyph           # Glyph array of integers
+            first           # ASCII extents (first char)
+            last            # ASCII extents (last char)
+            yAdvance)       # Newline distance (y axis)
+
+    Methods:
+        text(x, y, string, color)
+            prints text string beginning at (x,y). Returns x-coordinate for next character print.
+        getTextWidth(string)
+            returns string width in pixels.
