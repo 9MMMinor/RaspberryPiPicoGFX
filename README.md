@@ -1,3 +1,4 @@
+![Screenshot of Clock.py on ILI9225 display](/IMG_3210.png)
 # RaspberryPiPicoGFX
 Micropython graphics (GFX) and fonts for ILI9225 display for Raspberry Pi Pico
 ##### https://github.com/9MMMinor/RaspberryPiPicoGFX
